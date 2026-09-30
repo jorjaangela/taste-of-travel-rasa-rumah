@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="Rasa Rumah &mdash; an introduction to Indonesia, its culinary identity, regional ingredients, and food traditions." name="description"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Rasa Rumah | Home &middot; Indonesian Culinary Journey
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+  <style>
+   /* ==========================================================================
+       10 REQUIRED CSS SELECTORS DEMONSTRATION (Rubric Requirement XI)
+       1. Universal Selector (*)
+       2. Type/Element Selector (body, header, table)
+       3. Class Selector (.recipe-card, .terracotta)
+       4. ID Selector (#introduction, #recipes)
+       5. Grouping Selector (h1, h2, h3)
+       6. Descendant Selector (.recipe-content p)
+       7. Child Selector (.intro-grid > div)
+       8. Adjacent Sibling Selector (.eyebrow + h2)
+       9. General Sibling Selector (.recipe-number ~ h3)
+       10. Attribute Selector (a[target="_blank"])
+       ========================================================================== */
+
+    /* 1. Universal Selector */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* 2. Type/Element Selector */
+    body {
+      margin: 0;
+      background-color: #FAF7F2; /* Bright, Nostalgic Warm Cream */
+      color: #1E3A32;            /* Deep Teak Green */
+      font-family: 'DM Sans', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    /* 5. Grouping Selector */
+    h1, h2, h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.12;
+      margin: 0;
+    }
+
+    .hero h1 {
+    line-height: 0.89;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 6vw, 5.8rem);
+      letter-spacing: -.03em;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 4vw, 4.2rem);
+      letter-spacing: -.03em;
+    }
+
+    h3 {
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    }
+
+    em {
+      color: #C85A32; /* Terracotta Earth */
+      font-style: normal;
+    }
+
+    /* Utility Layout Shells */
+    .section-shell {
+      max-width: 1200px;
+      margin: auto;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    /* Site Header & Navigation */
+    .site-header {
+      background: #FAF7F2;
+      border-bottom: 1px solid #E2DACD;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-wrap {
+      max-width: 1300px;
+      margin: auto;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #C85A32;
+      color: #FFF;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .brand strong {
+      display: block;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px;
+      line-height: 1;
+    }
+
+    .brand small {
+      color: #7A857E;
+      display: block;
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .nav-wrap nav {
+      display: flex;
+      gap: 24px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+
+    .nav-wrap nav a {
+      transition: color .2s ease;
+    }
+
+    .nav-wrap nav a:hover {
+      color: #C85A32;
+    }
+
+    /* Opening Hero with Fade-in Keyframe Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero {
+      min-height: calc(90vh - 70px);
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 90px max(32px, calc((100vw - 1140px)/2));
+      background: linear-gradient(90deg, rgba(30, 58, 50, 0.88) 0%, rgba(30, 58, 50, 0.88) 45%, rgba(30, 58, 50, 0.12) 100%), 
+                  url('images/hero.jpg') center/cover no-repeat;
+      color: #FAF7F2;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 150px;
+      background: linear-gradient(
+        to bottom,
+        rgba(250, 247, 242, 0),
+        #FAF7F2
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .hero .eyebrow {
+      color: #D9A25F; /* Bamboo Gold */
+    }
+
+    /* 8. Adjacent Sibling Selector */
+    .eyebrow + h2 {
+      margin-top: 6px;
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      color: #D9A25F;
+      font-size: 18px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero-intro {
+      font-size: 16px;
+      max-width: 480px;
+      color: #EBF0EC;
+      margin-bottom: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      padding: 13px 24px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all .25s ease;
+    }
+
+    .button-light {
+      background: #D9A25F;
+      color: #1E3A32;
+    }
+
+    .button-light:hover {
+      background: #FAF7F2;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .hero-stamp {
+      position: absolute;
+      right: 10%;
+      bottom: 15%;
+      height: 130px;
+      width: 130px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-10deg);
+      color: #FFF;
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-stamp span {
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .hero-stamp strong {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .hero-stamp small {
+      font-size: 9px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #D9A25F;
+    }
+
+    /* Section Header Kickers */
+    .section-kicker {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      color: #8C9690;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 11px;
+      font-weight: 700;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #E2DACD;
+      margin-bottom: 50px;
+    }
+
+    .section-kicker span:first-child {
+      color: #C85A32;
+    }
+
+    /* 4. ID Selector */
+    #introduction {
+      padding-top: 90px;
+      padding-bottom: 65px;
+      scroll-margin-top: 70px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8%;
+      margin-bottom: 60px;
+    }
+
+    /* 7. Child Selector */
+    .intro-grid > div {
+      position: relative;
+    }
+
+    .terracotta {
+      color: #C85A32;
+    }
+
+    .intro-text p {
+      color: #4A5850;
+    }
+
+    .facts-row {
+      border-top: 1px solid #E2DACD;
+      margin-top: 32px;
+      padding-top: 20px;
+      display: flex;
+      gap: 24px;
+    }
+
+    .facts-row div {
+      flex: 1;
+    }
+
+    .facts-row strong {
+      display: block;
+      font-family: 'Playfair Display', Georgia, serif;
+      color: #C85A32;
+      font-size: 24px;
+    }
+
+    .facts-row span {
+      font-size: 11px;
+      display: block;
+      color: #727D76;
+      margin-top: 2px;
+    }
+
+    /* Photo with Quote Overlay (Merged from File 1 Aesthetic) */
+    .image-story {
+      display: grid;
+      grid-template-columns: 1.8fr 1.2fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .wide-image {
+      margin: 0;
+      height: 250px;
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .wide-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(30, 58, 50, 0.65), transparent 60%);
+    }
+
+    .wide-image figcaption {
+      position: absolute;
+      z-index: 2;
+      bottom: 20px;
+      left: 24px;
+      right: 24px;
+      color: #FFF;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px;
+    }
+
+    .pull-quote {
+      background: #D9A25F;
+      color: #1E3A32;
+      padding: 32px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .pull-quote span {
+      font-family: Georgia, serif;
+      font-size: 64px;
+      line-height: .4;
+      color: #C85A32;
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      line-height: 1.25;
+      margin: 12px 0 16px;
+    }
+
+    .pull-quote small {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+    }
+
+    /* Pantry / Flavor Map Section */
+    .ingredients-band {
+      background: #1E3A32;
+      color: #FAF7F2;
+      padding: 80px 0;
+    }
+
+    .ingredient-layout {
+      display: grid;
+      grid-template-columns: 32% 68%;
+      gap: 6%;
+    }
+
+    .sand {
+      color: #D9A25F;
+    }
+
+    .ingredient-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 28px 32px;
+    }
+
+    .ingredient-card {
+      border-top: 1px solid rgba(226, 218, 205, 0.25);
+      padding-top: 16px;
+    }
+
+    .ingredient-number {
+      font-size: 11px;
+      color: #D9A25F;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .ingredient-card strong {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      display: block;
+      color: #FFF;
+    }
+
+    .ingredient-card small {
+      display: block;
+      color: #D9A25F;
+      font-size: 11px;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .ingredient-card p {
+      font-size: 13px;
+      color: #CBD5CE;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* 4. ID Selector */
+    #recipes {
+      padding-top: 90px;
+      padding-bottom: 40px;
+      scroll-margin-top: 70px;
+    }
+
+    .section-heading-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 40px;
+    }
+
+    .heading-note {
+      max-width: 280px;
+      font-size: 12px;
+      color: #727D76;
+    }
+
+    /* Dedicated Recipe Sub-Navigation Bar */
+    .recipe-subnav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      align-items: center;
+      margin-bottom: 40px;
+      padding: 14px 20px;
+      background: #FFF;
+      border: 1px solid #E2DACD;
+      border-radius: 6px;
+    }
+
+    .recipe-subnav span {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: #8C9690;
+      font-weight: 700;
+    }
+
+    .recipe-subnav a {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1E3A32;
+      padding: 6px 14px;
+      border: 1px solid #E2DACD;
+      border-radius: 20px;
+      transition: all .2s ease;
+    }
+
+    .recipe-subnav a:hover {
+      background: #1E3A32;
+      color: #FAF7F2;
+      border-color: #1E3A32;
+    }
+
+    /* 3. Class Selector */
+    .recipe-card {
+      border: 1px solid #E2DACD;
+      background: #FFF;
+      border-radius: 8px;
+      display: grid;
+      grid-template-columns: 32% 38% 30%;
+      margin-bottom: 36px;
+      overflow: hidden;
+      transition: box-shadow .3s ease, transform .3s ease;
+    }
+
+    .recipe-card:hover {
+      box-shadow: 0 16px 36px rgba(30, 58, 50, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .recipe-image {
+      height: 100%;
+      min-height: 380px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .recipe-image img {
+      transition: transform .6s ease;
+    }
+
+    .recipe-card:hover .recipe-image img {
+      transform: scale(1.05);
+    }
+
+    .region-tag {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      background: #FAF7F2;
+      color: #1E3A32;
+      padding: 6px 10px;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .recipe-content {
+      padding: 32px 28px;
+      border-right: 1px solid #E2DACD;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .recipe-number {
+      color: #C85A32;
+      font-size: 11px;
+      letter-spacing: .15em;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    /* 9. General Sibling Selector */
+    .recipe-number ~ h3 {
+      color: #1E3A32;
+    }
+
+    .dish-subtitle {
+      font-family: 'Playfair Display', Georgia, serif;
+      color: #D9A25F;
+      font-style: italic;
+      margin: 4px 0 16px;
+      font-size: 15px;
+    }
+
+    /* 6. Descendant Selector */
+    .recipe-content p {
+      font-size: 13px;
+      color: #4A5850;
+      line-height: 1.55;
+    }
+
+    .chef-quote {
+      background: #FAF7F2;
+      border-left: 3px solid #C85A32;
+      padding: 12px 14px;
+      margin: 16px 0;
+      font-style: italic;
+      font-size: 12px;
+      color: #38453E;
+    }
+
+    .chef-quote cite {
+      display: block;
+      margin-top: 4px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 10px;
+      color: #C85A32;
+      text-transform: uppercase;
+    }
+
+    .tip-box {
+      border-top: 1px dashed #E2DACD;
+      padding-top: 16px;
+      margin-top: auto;
+    }
+
+    .tip-box strong {
+      display: block;
+      color: #1E3A32;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 8px;
+    }
+
+    .tip-box ul {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 12px;
+      color: #626E66;
+    }
+
+    .tip-box li {
+      margin-bottom: 4px;
+    }
+
+    .recipe-details {
+      padding: 28px 24px;
+      background: #FCFAF7;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .recipe-details table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .recipe-details caption {
+      text-align: left;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      color: #1E3A32;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .recipe-details th {
+      text-align: left;
+      color: #8C9690;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: 6px 0;
+      border-bottom: 1px solid #E2DACD;
+    }
+
+    .recipe-details td {
+      padding: 6px 0;
+      border-bottom: 1px solid #EFEAE1;
+      color: #4A5850;
+    }
+
+    .recipe-details td:last-child {
+      text-align: right;
+    }
+
+    /* Colspan note style inside recipe details table (Rubric IX Requirement) */
+    .table-span-cell {
+      text-align: left !important;
+      font-size: 11px;
+      color: #1E3A32;
+      background: #F4EFE6;
+      padding: 8px !important;
+      border-radius: 4px;
+      font-style: italic;
+    }
+
+    .time-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      border-bottom: 1px solid #E2DACD;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      font-size: 11px;
+      color: #727D76;
+    }
+
+    .time-row b {
+      display: block;
+      color: #1E3A32;
+      font-size: 12px;
+    }
+
+    .steps-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 700;
+      color: #C85A32;
+      margin-bottom: 8px;
+    }
+
+    .steps {
+      margin: 0;
+      padding-left: 18px;
+      color: #4A5850;
+      font-size: 12px;
+    }
+
+    .steps li {
+      padding: 2px 0;
+      margin-bottom: 4px;
+    }
+
+    /* Recipe Comparison Table */
+    .comparison {
+      padding-top: 15px;
+      padding-bottom: 70px;
+    }
+
+    .comparison h2 {
+      margin-bottom: 36px;
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+      border: 1px solid #E2DACD;
+      border-radius: 8px;
+      background: #FFF;
+    }
+
+    .comparison-table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 700px;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    .comparison-table th {
+      background: #1E3A32;
+      color: #FAF7F2;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: 10px;
+      padding: 16px 18px;
+      font-weight: 500;
+    }
+
+    .comparison-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid #E2DACD;
+      color: #4A5850;
+    }
+
+    .comparison-table tbody tr:nth-child(even) {
+      background: #FAF7F2;
+    }
+
+    .comparison-table td:first-child {
+      color: #1E3A32;
+    }
+
+    .level {
+      padding: 4px 8px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .easy { background: #E2EFE0; color: #2D5A27; }
+    .slow { background: #FDE8D7; color: #9A4312; }
+
+    /* Did You Know Flip Cards Section */
+    .did-you-know {
+      padding-top: 90px;
+      padding-bottom: 90px;
+      background: #F4EFE6;
+    }
+
+    .dyk-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .dyk-card {
+      background: #FFF;
+      border: 1px solid #E2DACD;
+      border-radius: 8px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: all .3s ease;
+    }
+
+    .dyk-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #C85A32;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+
+    .dyk-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(30, 58, 50, 0.08);
+      border-color: #C85A32;
+    }
+
+    .dyk-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .dyk-icon {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px;
+      color: #D9A25F;
+      line-height: 1;
+      margin-bottom: 12px;
+      display: block;
+      transition: color .3s ease;
+    }
+
+    .dyk-card:hover .dyk-icon {
+      color: #C85A32;
+    }
+
+    .dyk-card h3 {
+      font-size: 20px;
+      color: #1E3A32;
+      margin-bottom: 10px;
+    }
+
+    .dyk-card p {
+      font-size: 13px;
+      color: #55635B;
+      margin: 0;
+    }
+
+    .dyk-card cite {
+      display: block;
+      font-size: 11px;
+      color: #D9A25F;
+      margin-top: 12px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    /* Culture Section */
+    .culture {
+      background: #1E3A32;
+      color: #FAF7F2;
+      padding: 90px 0;
+    }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: 38% 62%;
+      gap: 6%;
+    }
+
+    .culture-lead {
+      color: #CBD5CE;
+      font-size: 17px;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    .postcard-line {
+      width: 80px;
+      border-top: 2px solid #D9A25F;
+      margin: 24px 0;
+    }
+
+    .culture-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .culture-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(217, 162, 95, 0.25);
+      border-radius: 6px;
+      padding: 24px;
+      transition: all .3s ease;
+    }
+
+    .culture-card:hover {
+      background: rgba(217, 162, 95, 0.1);
+      border-color: #D9A25F;
+      transform: translateY(-3px);
+    }
+
+    .culture-card h3 {
+      font-size: 20px;
+      color: #D9A25F;
+      margin-bottom: 15px;
+    }
+
+    .culture-card p {
+      font-size: 14px;
+      color: #CBD5CE;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Food Ratings Section (Merged Detailed Ratings from File 1) */
+    .ratings {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+
+    .ratings-table-scroll {
+      overflow-x: auto;
+      border: 1px solid #E2DACD;
+      border-radius: 8px;
+      background: #FFF;
+    }
+
+    .ratings-table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 720px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .ratings-table th {
+      background: #1E3A32;
+      color: #FAF7F2;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: 10px;
+      padding: 16px 14px;
+      font-weight: 500;
+    }
+
+    .ratings-table th:first-child {
+      text-align: left;
+    }
+
+    .ratings-table td {
+      padding: 16px 14px;
+      border-bottom: 1px solid #E2DACD;
+      color: #1E3A32;
+    }
+
+    .ratings-table td:first-child {
+      text-align: left;
+    }
+
+    .ratings-table tbody tr:nth-child(even) {
+      background: #FAF7F2;
+    }
+
+    .ratings-table tbody tr:hover {
+      background: #FDF6EE;
+    }
+
+    .stars {
+      font-size: 16px;
+      color: #D9A25F;
+      letter-spacing: 2px;
+    }
+
+    .stars.overall {
+      font-size: 18px;
+      color: #C85A32;
+    }
+
+    /* Embedded Map Section */
+    .map-section {
+      padding-top: 90px;
+      padding-bottom: 90px;
+      background: #F4EFE6;
+    }
+
+    .map-wrap {
+      width: 100%;
+      height: 420px;
+      border: 1px solid #E2DACD;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: sepia(.12) saturate(.95);
+    }
+
+    .map-note {
+      font-size: 13px;
+      color: #626E66;
+      margin-top: 18px;
+    }
+
+    /* Map Region Highlight Cards */
+    .map-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .map-fact-card {
+      background: #1E3A32;
+      border: 1px solid #D9A25F;
+      border-radius: 8px;
+      padding: 32px 28px;
+      text-align: center;
+      transition: all .3s ease;
+    }
+
+    .map-fact-card:hover {
+      background: #29483F;
+      border-color: #D9A25F;
+      transform: translateY(-3px);
+    }
+
+    .map-fact-card h3 {
+      font-size: 20px;
+      color: #D9A25F;
+      margin-bottom: 15px;
+    }
+
+    .map-fact-card p {
+      font-size: 14px;
+      color: #CBD5CE;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 980px) {
+      .map-facts {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .map-facts {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* Culinary Adventure Section (Rubric XIV Requirement) */
+    .adventure {
+      background: #C85A32;
+      color: #FFF;
+      padding: 90px 0;
+    }
+
+    .adventure-grid {
+      display: grid;
+      grid-template-columns: 38% 62%;
+      gap: 6%;
+      align-items: center;
+    }
+
+    .adventure-copy p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 21px;
+      line-height: 1.45;
+      color: #FFF3E4;
+      margin-bottom: 24px;
+    }
+
+    .adventure-copy p strong,
+    .adventure-copy p em {
+    color: #D9A25F;
+    }
+
+    .adventure-copy p em {
+    font-style: italic;
+    }
+
+    .adventure h2 em {
+      color: #D9A25F;
+    }
+    .adventure h2 {
+      font-size: 75px;
+    }
+    .button-outline {
+      border: 1px solid #FDE8D7;
+      color: #FFF3E4;
+    }
+
+    .button-outline:hover {
+      background: #FDE8D7;
+      color: #1E3A32;
+    }
+
+    /* Sources & References Section */
+    .sources {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+
+    .sources-heading {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8%;
+      align-items: flex-end;
+      margin-bottom: 40px;
+    }
+
+    .source-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 32px;
+      border-top: 1px solid #E2DACD;
+    }
+
+    .source-list li {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      border-bottom: 1px solid #E2DACD;
+      padding: 16px 0;
+    }
+
+    .source-list li > span {
+      color: #C85A32;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .source-list strong {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      color: #1E3A32;
+    }
+
+    .source-list p {
+      font-size: 12px;
+      color: #626E66;
+      margin: 4px 0 6px;
+    }
+
+    /* 10. Attribute Selector */
+    a[target="_blank"] {
+      font-size: 11px;
+      color: #C85A32;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #142822;
+      color: #E2E8E4;
+      padding: 50px max(32px, calc((100vw - 1140px)/2)) 28px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .footer-brand .brand-mark {
+      background: #D9A25F;
+      color: #1E3A32;
+    }
+
+    .back-top {
+      color: #D9A25F;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 24px;
+      color: #8C9B91;
+      font-size: 11px;
+      letter-spacing: .04em;
+    }
+
+    /* Responsive CSS Rules */
+    @media (max-width: 980px) {
+      .intro-grid, .ingredient-layout, .culture-grid, .adventure-grid, .sources-heading {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .ingredient-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .recipe-card {
+        grid-template-columns: 1fr;
+      }
+      .recipe-content {
+        border-right: 0;
+        border-bottom: 1px solid #E2DACD;
+      }
+      .dyk-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .image-story {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-wrap nav {
+        display: none;
+      }
+      .ingredient-grid, .culture-cards, .dyk-grid, .source-list {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 6px;
+      }
+      .hero {
+        padding-top: 70px;
+        padding-bottom: 70px;
+      }
+      .hero-stamp {
+        display: none;
+      }
+    }
+   /* Added country fact cards */
+    .country-facts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 50px;
+    }
+    .country-fact-card {
+      position: relative;
+      overflow: hidden;
+      background: #FFF;
+      border: 1px solid #E2DACD;
+      border-radius: 8px;
+      padding: 28px 24px;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .country-fact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(30,58,50,.08);
+      border-color: #C85A32;
+    }
+    .country-fact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #C85A32;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+      z-index: 2;
+    }
+
+    .country-fact-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .country-fact-card .icon-text {
+      color: #D9A25F;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .country-fact-card h3 {
+      color: #1E3A32;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .country-fact-card p {
+      color: #55635B;
+      font-size: 14px;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Three stacked landscape photos per recipe: full-height gallery */
+    .recipe-image-gallery {
+      height: 650px;
+      min-height: 650px;
+      display: grid;
+      grid-template-rows: repeat(3, minmax(0, 1fr));
+      gap: 5px;
+      position: relative;
+      overflow: hidden;
+    }
+    .recipe-photo {
+      min-height: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .recipe-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .recipe-card:hover .recipe-photo img { transform: scale(1.04); }
+
+    /* Featured Bumbu item inside Did You Know */
+    .dyk-feature {
+      display: grid;
+      grid-template-columns: 42% 58%;
+      margin-bottom: 32px;
+      background: #FFF;
+      border: 1px solid #E2DACD;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(30,58,50,.05);
+    }
+
+    .dyk-feature {
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+
+    .dyk-feature {
+      position: relative;
+      }
+
+    .dyk-feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(30, 58, 50, 0.08);
+      border-color: #C85A32;
+    }
+
+    .dyk-feature::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #C85A32;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+      z-index: 2;
+    }
+
+    .dyk-feature:hover::before {
+      transform: scaleX(1);
+    }
+
+    .dyk-feature-image { min-height: 300px; overflow: hidden; }
+    .dyk-feature-image img { width: 100%; height: 100%; object-fit: cover; }
+    .dyk-feature-copy {
+      padding: 36px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .dyk-feature-copy .icon-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px;
+      line-height: 1;
+      color: #D9A25F;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: none;
+      margin-bottom: 14px;
+      display: block;
+      transition: color .3s ease;
+    }
+
+    .dyk-feature-copy h3 { color: #1E3A32; font-size: 28px; margin-bottom: 14px; }
+    .dyk-feature-copy p { color: #55635B; font-size: 14px; line-height: 1.65; margin-bottom: 10px; }
+    .dyk-feature-copy p:last-child { margin-bottom: 0; }
+
+    /* Standalone special traditions */
+    .traditions {
+      padding-top: 90px;
+      padding-bottom: 90px;
+      background: #FAF7F2;
+    }
+    .traditions-heading { text-align: center; max-width: 760px; margin: 0 auto 42px; }
+    .traditions-heading .eyebrow { color: #C85A32; }
+    .traditions-heading h2 { font-size: clamp(2.2rem,4vw,3.3rem); }
+    .traditions-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; }
+    .tradition-card {
+      position: relative;
+      overflow: hidden;
+      background: #FFF;
+      border: 1px solid #E2DACD;
+      border-radius: 8px;
+      padding: 32px 30px;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .tradition-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(30,58,50,.08);
+      border-color: #C85A32;
+    }
+    .tradition-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(30,58,50,.08);
+      border-color: #C85A32;
+    }
+    .tradition-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #C85A32;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+      z-index: 2;
+    }
+    .tradition-card:hover::before {
+      transform: scaleX(1);
+    }
+    .tradition-card .icon-text {
+      color: #D9A25F;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .tradition-card h3 { color: #1E3A32; font-size: 24px; margin-bottom: 12px; }
+    .tradition-card p { color: #55635B; font-size: 14px; line-height: 1.65; margin: 0 0 12px; }
+    .tradition-card p:last-child { margin-bottom: 0; }
+
+    /* Section image banners, restyled to match Rasa Rumah */
+    .spice-banner{
+      position: relative;
+      overflow: hidden;
+      width: calc(80vw - 48px);
+      margin-left: calc(50% - 15vw + 24px);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+    }
+    .culture-image {
+      position: relative;
+      overflow: hidden;
+      width: calc(75vw - 48px);
+      margin-left: calc(20% - 15vw + 24px);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+    }
+    .culture-image .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px 40px;
+    z-index: 2;
+  }
+
+    .culture-image .caption .indonesian-quote {
+      color: #FFF;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      font-style: italic;
+      font-weight: 500;
+      margin: 0 0 6px;
+      text-shadow: 0 2px 10px rgba(0,0,0,.4);
+    }
+
+    .culture-image .caption .translation {
+      color: #F4EFE6;
+      font-family: 'DM Sans', Arial, sans-serif;
+      font-size: 13px;
+      font-style: normal;
+      letter-spacing: .04em;
+      margin: 0;
+      opacity: .95;
+    }
+    .adventure-image {
+      position: relative;
+      overflow: hidden;
+      width: calc(80vw - 48px);
+      margin-left: calc(42% - 15vw + 24px);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+    }
+    .spice-banner { margin-top: 18px; }
+    .spice-banner img { display:block; width:100%; height:320px; object-fit:cover; }
+    .spice-banner .overlay,
+    .culture-image .overlay,
+    .adventure-image .overlay {
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+    }
+    .spice-banner .overlay { background: linear-gradient(to right, rgba(28,20,16,.80), transparent); }
+    .spice-banner .caption { position:absolute; inset:0; display:flex; align-items:center; padding:40px; }
+    .spice-banner .caption p {
+      color:#FFF;
+      font-size:22px;
+      line-height:1.35;
+      font-family:'Playfair Display', Georgia, serif;
+      font-style:italic;
+      font-weight:400;
+      max-width:540px;
+      margin:0;
+      text-shadow:0 2px 10px rgba(0,0,0,.4);
+    }
+    .culture-image { margin-top:64px; border-radius:24px }
+    .culture-image img { display:block; width:100%; height:384px; object-fit:cover; }
+    .culture-image .overlay { background:linear-gradient(to top, rgba(28,20,16,.50), transparent); }
+    .adventure-image { margin-top:48px; }
+    .adventure-image img { display:block; width:100%; height:320px; object-fit:cover; }
+    .adventure-image .overlay { background:linear-gradient(to top, rgba(28,20,16,.88), rgba(28,20,16,.38), transparent); }
+    .adventure-image .caption { position:absolute; bottom:0; left:0; right:0; padding:32px; text-align:center; }
+    .adventure-image .caption p {
+      color:#FFF;
+      font-size:22px;
+      line-height:1.35;
+      font-family:'Playfair Display', Georgia, serif;
+      font-style:italic;
+      font-weight:400;
+      margin:0;
+      text-shadow:0 2px 10px rgba(0,0,0,.4);
+    }
+
+    @media (max-width: 980px) {
+      .country-facts { grid-template-columns: 1fr 1fr; }
+      .dyk-feature, .traditions-grid { grid-template-columns: 1fr; }
+      .dyk-feature-image { min-height: 260px; }
+    }
+    @media (max-width: 640px) {
+      .country-facts { grid-template-columns: 1fr; }
+      .spice-banner,
+      .culture-image,
+      .adventure-image {
+        width: calc(100vw - 24px);
+        margin-left: calc(50% - 50vw + 12px);
+        border-radius: 18px;
+      }
+      .spice-banner .caption { padding:24px; }
+      .spice-banner .caption p, .adventure-image .caption p { font-size:18px; }
+      .culture-image img { height:300px; }
+    }
+  </style>
+ </head>
+ <body id="top">
+  <header class="site-header">
+   <div class="nav-wrap">
+    <a aria-label="Rasa Rumah Home" class="brand" href="index.html#top">
+     <span class="brand-mark">
+      RR
+     </span>
+     <span>
+      <strong>
+       Rasa Rumah
+      </strong>
+      <small>
+       taste of home
+      </small>
+     </span>
+    </a>
+    <nav aria-label="Main Navigation">
+     <a aria-current="page" href="index.html#introduction">
+      Home
+     </a>
+     <a href="recipes.html#recipes">
+      Recipes
+     </a>
+     <a href="culture.html#did-you-know">
+      Journey
+     </a>
+     <a href="culture.html#sources">
+      References
+     </a>
+     <a href="Fernandez_Feedback.html#top">Feedback</a>
+    </nav>
+    <a href="culture.html#sources" style="font-size: 11px; font-weight:700; color: #C85A32; text-transform: uppercase;">
+     Research Notes &nearrow;
+    </a>
+   </div>
+  </header>
+  <main>
+   <section aria-labelledby="hero-title" class="hero" id="hero">
+    <div class="hero-copy">
+     <span class="eyebrow">
+      A Taste of Indonesia
+     </span>
+     <h1 id="hero-title">
+      Come hungry.
+      <br/>
+      <em>
+       Leave with a story.
+      </em>
+     </h1>
+     <p class="hero-subtitle">
+      Datang Lapar, Pulang Membawa Cerita
+     </p>
+     <p class="hero-intro">
+      Indonesia is not one flavor, but thousands of them. Pull up a chair and wander from smoky roadside satay stalls to coconut-rich family kitchens across 17,000 islands.
+     </p>
+     <a class="button button-light" href="recipes.html#recipes">
+      Begin the Journey &darr;
+     </a>
+    </div>
+    <div aria-label="Welcome Stamp" class="hero-stamp">
+     <span>
+      selamat
+     </span>
+     <strong>
+      datang
+     </strong>
+     <small>
+      welcome
+     </small>
+    </div>
+   </section>
+   <section aria-labelledby="intro-title" class="section-shell" id="introduction">
+    <div class="section-kicker">
+     <span>
+      01
+     </span>
+     <span>
+      Meet the Republic of Indonesia
+     </span>
+    </div>
+    <div class="intro-grid">
+     <div>
+      <span class="eyebrow terracotta">
+       Warisan Kuliner &middot; Culinary Heritage
+      </span>
+      <h2 id="intro-title">
+       A nation written in
+       <br/>
+       <em>
+        rice, smoke &amp; spice.
+       </em>
+      </h2>
+     </div>
+     <div class="intro-text">
+      <p>
+       Indonesia is a vast tropical archipelago in Southeast Asia spanning over 17,000 islands located between the Indian and Pacific Oceans. Its fertile volcanic soil, long tropical coastlines, and
+       <strong>
+        centuries of maritime spice trade
+       </strong>
+       have nurtured one of the world's most vibrant food cultures.
+      </p>
+      <p>
+       In Indonesian culture,
+       <i>
+        a meal is always an invitation to connect.
+       </i>
+       Steamed rice forms the steady heart of the table, while crushed chilies, shallots, garlic, galangal, lemongrass, coconut milk, and fragrant leaves build complex layers of aroma around it.
+      </p>
+      <div class="facts-row">
+       <div>
+        <strong>
+         17,000+
+        </strong>
+        <span>
+         islands across the ocean
+        </span>
+       </div>
+       <div>
+        <strong>
+         3
+        </strong>
+        <span>
+         time zones, one table
+        </span>
+       </div>
+       <div>
+        <strong>
+         1,340+
+        </strong>
+        <span>
+         recognized ethnic groups
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- Photo with Quote Overlay Layout -->
+    <div class="image-story">
+     <figure class="wide-image">
+      <img alt="Lush terraced green rice fields in Bali, Indonesia" src="images/hero.jpg"/>
+      <figcaption>
+       Terraced rice fields swaying with the island breeze
+      </figcaption>
+     </figure>
+     <aside class="pull-quote">
+      <span>
+       &ldquo;
+      </span>
+      <p>
+       Food is the thread that ties every island to the next.
+      </p>
+      <small>
+       &mdash; Traditional Indonesian Table Reflection
+      </small>
+     </aside>
+    </div>
+    <div aria-label="Indonesia country facts" class="country-facts">
+     <article class="country-fact-card">
+      <span class="icon-text">
+       Location
+      </span>
+      <h3>
+       Archipelago
+      </h3>
+      <p>
+       Indonesia
+       <b>
+        sits astride the equator
+       </b>
+       in Southeast Asia, stretching across more than 17,000 islands between the Indian and Pacific Oceans from Sumatra in the west to Papua in the east.
+      </p>
+     </article>
+     <article class="country-fact-card">
+      <span class="icon-text">
+       Demographics
+      </span>
+      <h3>
+       A Nation of Diversity
+      </h3>
+      <p>
+       Home to over 280 million people from more than 300 distinct ethnic groups, Indonesia is the
+       <b>
+        world's fourth most populous nation
+       </b>
+       and its
+       <b>
+        largest Muslim-majority country.
+       </b>
+      </p>
+     </article>
+     <article class="country-fact-card">
+      <span class="icon-text">
+       Communication
+      </span>
+      <h3>
+       Language &amp; Culture
+      </h3>
+      <p>
+       The national language is
+       <b>
+        Bahasa
+       </b>
+       Indonesia, but over
+       <u>
+        700 living languages are spoken
+       </u>
+       across the islands. This extraordinary diversity is woven into every aspect of daily life, especially the food.
+      </p>
+     </article>
+     <article class="country-fact-card">
+      <span class="icon-text">
+       History
+      </span>
+      <h3>
+       Spice Islands Legacy
+      </h3>
+      <p>
+       For centuries, the
+       <b>
+        Maluku Islands
+       </b>
+       , known as the
+       <i>
+        Spice Islands
+       </i>
+       , were the
+       <u>
+        world's only source of nutmeg and cloves
+       </u>
+       , drawing traders from across the globe and shaping the course of history.
+      </p>
+     </article>
+    </div>
+   </section>
+   <section aria-labelledby="pantry-title" class="ingredients-band" id="pantry">
+    <div class="section-shell ingredient-layout">
+     <div>
+      <span class="eyebrow sand">
+       The Essential Pantry
+      </span>
+      <h2 id="pantry-title">
+       The Indonesian
+       <br/>
+       <em>
+        flavor map
+       </em>
+      </h2>
+     </div>
+     <div class="ingredient-grid">
+      <div class="ingredient-card">
+       <span class="ingredient-number">
+        01
+       </span>
+       <strong>
+        Nasi (Rice)
+       </strong>
+       <small>
+        The Sacred Grain
+       </small>
+       <p>
+        Steamed, fried, or packed into coconut leaves; rice is the essential heart of every Indonesian meal.
+       </p>
+      </div>
+      <div class="ingredient-card">
+       <span class="ingredient-number">
+        02
+       </span>
+       <strong>
+        Santan (Coconut Milk)
+       </strong>
+       <small>
+        Rich Tropical Silk
+       </small>
+       <p>
+        Extracted fresh from grated coconut to impart silky richness to stews, curries, and desserts.
+       </p>
+      </div>
+      <div class="ingredient-card">
+       <span class="ingredient-number">
+        03
+       </span>
+       <strong>
+        Kecap Manis
+       </strong>
+       <small>
+        Palm Sugar Soy Sauce
+       </small>
+       <p>
+        Thick, caramelized sweet soy sauce infused with palm sugar that creates signature dark glazes.
+       </p>
+      </div>
+      <div class="ingredient-card">
+       <span class="ingredient-number">
+        04
+       </span>
+       <strong>
+        Bumbu Rempah
+       </strong>
+       <small>
+        Aromatic Spice Paste
+       </small>
+       <p>
+        Fresh ground pastes of shallot, garlic, galangal, ginger, and turmeric pounded in stone mortars.
+       </p>
+      </div>
+      <div class="ingredient-card">
+       <span class="ingredient-number">
+        05
+       </span>
+       <strong>
+        Sambal &amp; Chili
+       </strong>
+       <small>
+        The Island Spark
+       </small>
+       <p>
+        Over 300 regional varieties of crushed chili pastes that bring brightness, heat, and personal signature.
+       </p>
+      </div>
+      <div class="ingredient-card">
+       <span class="ingredient-number">
+        06
+       </span>
+       <strong>
+        Serai &amp; Daun Jeruk
+       </strong>
+       <small>
+        Fresh Citrus Aromatics
+       </small>
+       <p>
+        Bruised lemongrass stalks and kaffir lime leaves that infuse dishes with clean, perfume-like lifts.
+       </p>
+      </div>
+     </div>
+     <div class="spice-banner">
+      <img alt="A close-up of Indonesian spices including cardamom, cloves, and cinnamon on a wooden plate" src="images/spice-banner.jpg"/>
+      <div class="overlay">
+      </div>
+      <div class="caption">
+       <p>
+        &ldquo;The story of Indonesian food is written in its spices &mdash; cloves and nutmeg that once drew the world to these shores.&rdquo;
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="site-footer">
+   <div class="footer-top">
+    <a class="brand footer-brand" href="index.html#top">
+     <span class="brand-mark">
+      RR
+     </span>
+     <span>
+      <strong>
+       Rasa Rumah
+      </strong>
+      <small>
+       taste of home
+      </small>
+     </span>
+    </a>
+    <a class="back-top" href="#top">
+     Back to top &uarr;
+    </a>
+   </div>
+   <div class="footer-bottom">
+    <span>
+     <strong>
+      Created by:
+     </strong>
+     Jorja Angela A. Fernandez &middot; IT2A
+    </span>
+    <span>
+     <strong>
+      Subject course:
+     </strong>
+     IIT406 &middot; Computer Programming Web Development
+    </span>
+    <span>
+     <strong>
+      Assigned Country:
+     </strong>
+     Indonesia &middot; Taste of Travel
+    </span>
+    <span>
+     <strong>
+      Year:
+     </strong>
+     2026
+    </span>
+   </div>
+  </footer>
+ </body>
+</html>

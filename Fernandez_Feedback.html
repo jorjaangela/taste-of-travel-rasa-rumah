@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Rate Your Culinary Experience with Rasa Rumah and share feedback about Indonesian cuisine and the website.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rasa Rumah | Rate Your Culinary Experience</title>
+  <link rel="stylesheet" href="Fernandez_style.css">
+</head>
+
+<body id="top">
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html#top" aria-label="Rasa Rumah Home">
+        <span class="brand-mark">RR</span>
+        <span>
+          <strong>Rasa Rumah</strong>
+          <small>taste of home</small>
+        </span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <a href="index.html#introduction">Home</a>
+        <a href="recipes.html#recipes">Recipes</a>
+        <a href="culture.html#did-you-know">Journey</a>
+        <a href="culture.html#sources">References</a>
+        <a href="Fernandez_Feedback.html#top" aria-current="page">Feedback</a>
+      </nav>
+
+      <a class="research-link" href="culture.html#sources">Research Notes ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" aria-labelledby="feedback-title">
+      <div class="hero-inner">
+        <span class="eyebrow">05 / Visitor Feedback</span>
+        <h1 id="feedback-title">Rate Your <em>Culinary Experience.</em></h1>
+        <p class="hero-note">
+          Take a moment to share what stood out while exploring Indonesia's flavors,
+          ingredients, traditions, and recipes through Rasa Rumah.
+        </p>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <div class="section-shell">
+        <div class="section-kicker">
+          <span>Feedback Form</span>
+          <span>A Little Taste From You</span>
+        </div>
+
+        <div class="form-intro">
+          <span class="eyebrow" style="color:#C85A32;">Share Your Experience</span>
+          <h2>A table is better when<br><em>everyone has a voice.</em></h2>
+          <p>
+            Tell us about your favorite Indonesian dish, the ingredients that caught your
+            attention, and the parts of the culinary journey you found most useful.
+          </p>
+        </div>
+
+        <form class="feedback-form" action="#" method="post" enctype="multipart/form-data">
+
+          <div class="form-card">
+            <fieldset>
+              <legend>
+                <span>01 / Visitor Information</span>
+                About You
+              </legend>
+
+              <div class="form-grid">
+                <div class="field">
+                  <label for="full-name">Full Name <span class="required">*</span></label>
+                  <input id="full-name" name="full_name" type="text" autocomplete="name" required>
+                </div>
+
+                <div class="field">
+                  <label for="email">Email Address <span class="required">*</span></label>
+                  <input id="email" name="email" type="email" autocomplete="email" required>
+                </div>
+
+                <div class="field">
+                  <label for="password">Password <span class="required">*</span></label>
+                  <input id="password" name="password" type="password" autocomplete="new-password" required>
+                </div>
+
+                <div class="field">
+                  <label for="contact">Contact Number</label>
+                  <input id="contact" name="contact" type="tel" autocomplete="tel">
+                </div>
+
+                <div class="field">
+                  <label for="age">Age <span class="required">*</span></label>
+                  <input id="age" name="age" type="number" min="1" max="120" required>
+                </div>
+
+                <div class="field">
+                  <label for="visit-date">Date of Visit <span class="required">*</span></label>
+                  <input id="visit-date" name="visit_date" type="date" required>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-card">
+            <fieldset>
+              <legend>
+                <span>02 / Favorite Recipe</span>
+                Which dish won you over?
+              </legend>
+
+              <div class="option-grid">
+                <div class="option-item">
+                  <input id="recipe-nasi" name="favorite_recipe" type="radio" value="Nasi Goreng" required>
+                  <label for="recipe-nasi">Nasi Goreng</label><small class="recipe-description">Fried rice tossed with savory seasonings, aromatics, and traditional Indonesian toppings.</small>
+                </div>
+                <div class="option-item">
+                  <input id="recipe-rendang" name="favorite_recipe" type="radio" value="Rendang">
+                  <label for="recipe-rendang">Rendang</label><small class="recipe-description">Slow-cooked beef simmered in coconut milk, chilies, and spices until deeply caramelized.</small>
+                </div>
+                <div class="option-item">
+                  <input id="recipe-sate" name="favorite_recipe" type="radio" value="Sate Ayam">
+                  <label for="recipe-sate">Sate Ayam</label><small class="recipe-description">Grilled chicken skewers served with a rich, sweet-savory peanut sauce.</small>
+                </div>
+                <div class="option-item">
+                  <input id="recipe-gado" name="favorite_recipe" type="radio" value="Gado-Gado">
+                  <label for="recipe-gado">Gado-Gado</label><small class="recipe-description">A fresh mix of vegetables, tofu, and other sides covered in creamy peanut sauce.</small>
+                </div>
+                <div class="option-item">
+                  <input id="recipe-pisang" name="favorite_recipe" type="radio" value="Pisang Goreng">
+                  <label for="recipe-pisang">Pisang Goreng</label><small class="recipe-description">Ripe bananas coated in batter and fried until crisp and golden.</small>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-card">
+            <fieldset>
+              <legend>
+                <span>03 / Favorite Ingredients</span>
+                Choose as many as you like
+              </legend>
+
+              <div class="option-grid">
+                <div class="option-item">
+                  <input id="ing-coconut" name="favorite_ingredients[]" type="checkbox" value="Coconut Milk">
+                  <label for="ing-coconut">Coconut Milk</label>
+                </div>
+                <div class="option-item">
+                  <input id="ing-chili" name="favorite_ingredients[]" type="checkbox" value="Red Chilies">
+                  <label for="ing-chili">Red Chilies</label>
+                </div>
+                <div class="option-item">
+                  <input id="ing-lemongrass" name="favorite_ingredients[]" type="checkbox" value="Lemongrass">
+                  <label for="ing-lemongrass">Lemongrass</label>
+                </div>
+                <div class="option-item">
+                  <input id="ing-galangal" name="favorite_ingredients[]" type="checkbox" value="Galangal">
+                  <label for="ing-galangal">Galangal</label>
+                </div>
+                <div class="option-item">
+                  <input id="ing-garlic" name="favorite_ingredients[]" type="checkbox" value="Garlic">
+                  <label for="ing-garlic">Garlic</label>
+                </div>
+                <div class="option-item">
+                  <input id="ing-shallot" name="favorite_ingredients[]" type="checkbox" value="Shallots">
+                  <label for="ing-shallot">Shallots</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-card">
+            <fieldset>
+              <legend>
+                <span>04 / Cuisine Category</span>
+                Pick one category
+              </legend>
+
+              <div class="select-wrap">
+                <label class="select-label" for="cuisine-category">Cuisine Category</label>
+                <select id="cuisine-category" name="cuisine_category" required>
+                  <option value="" selected disabled>Choose a category</option>
+                  <option value="Appetizer">Appetizer</option>
+                  <option value="Main Dish">Main Dish</option>
+                  <option value="Dessert">Dessert</option>
+                  <option value="Soup">Soup</option>
+                  <option value="Beverage">Beverage</option>
+                </select>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-card">
+            <fieldset>
+              <legend>
+                <span>05 / Culinary Interests</span>
+                Select multiple areas
+              </legend>
+
+              <div class="select-wrap">
+                <label class="select-label" for="culinary-interests">
+                  What would you like to explore more?
+                </label>
+                <select id="culinary-interests" name="culinary_interests[]" class="multi-select" multiple size="6">
+                  <option value="History">History</option>
+                  <option value="Ingredients">Ingredients</option>
+                  <option value="Cooking Techniques">Cooking Techniques</option>
+                  <option value="Food Culture">Food Culture</option>
+                  <option value="Traditional Recipes">Traditional Recipes</option>
+                  <option value="Food Presentation">Food Presentation</option>
+                </select>
+                <small class="help-text">Hold Ctrl (Windows) or Command (Mac) to select more than one.</small>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-card">
+            <fieldset>
+              <legend>
+                <span>06 / Cuisine Rating</span>
+                Give the flavors a number
+              </legend>
+
+              <div class="rating-wrap">
+                <label class="select-label" for="cuisine-rating">Overall Cuisine Rating</label>
+                <input id="cuisine-rating" name="cuisine_rating" type="range" min="1" max="10" value="8">
+                <div class="rating-line">
+                  <span>1 — Not impressed</span>
+                  <output id="rating-value" for="cuisine-rating">8 / 10</output>
+                  <span>10 — Exceptional</span>
+                </div>
+                <div class="rating-description">
+                  The scale runs from <strong>1</strong> for “Not impressed” to <strong>10</strong> for “Exceptional.”
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-card">
+            <fieldset>
+              <legend>
+                <span>07 / Cuisine Color</span>
+                Give the cuisine a color
+              </legend>
+
+              <div class="color-line">
+                <input id="cuisine-color" name="cuisine_color" type="color" value="#C85A32">
+                <div>
+                  <label class="select-label" for="cuisine-color">Choose a color that represents Indonesian cuisine.</label>
+                  <p class="help-text">Think of spices, tropical ingredients, family tables, or the warm colors of a market.</p>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-card">
+            <fieldset>
+              <legend>
+                <span>08 / Recommendation</span>
+                Would you recommend the cuisine?
+              </legend>
+
+              <div class="option-grid">
+                <div class="option-item">
+                  <input id="recommend-yes" name="recommendation" type="radio" value="Definitely" required>
+                  <label for="recommend-yes">Definitely</label>
+                </div>
+                <div class="option-item">
+                  <input id="recommend-maybe" name="recommendation" type="radio" value="Maybe">
+                  <label for="recommend-maybe">Maybe</label>
+                </div>
+                <div class="option-item">
+                  <input id="recommend-notyet" name="recommendation" type="radio" value="Not Yet">
+                  <label for="recommend-notyet">Not Yet</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-card">
+            <fieldset>
+              <legend>
+                <span>09 / Website Feedback</span>
+                Which sections helped you most?
+              </legend>
+
+              <div class="option-grid">
+                <div class="option-item">
+                  <input id="use-intro" name="useful_sections[]" type="checkbox" value="Country Introduction">
+                  <label for="use-intro">Country Introduction</label>
+                </div>
+                <div class="option-item">
+                  <input id="use-recipes" name="useful_sections[]" type="checkbox" value="Five Recipes">
+                  <label for="use-recipes">Five Recipes</label>
+                </div>
+                <div class="option-item">
+                  <input id="use-pantry" name="useful_sections[]" type="checkbox" value="Ingredient and Flavor Map">
+                  <label for="use-pantry">Ingredient &amp; Flavor Map</label>
+                </div>
+                <div class="option-item">
+                  <input id="use-culture" name="useful_sections[]" type="checkbox" value="Food Culture">
+                  <label for="use-culture">Food Culture</label>
+                </div>
+                <div class="option-item">
+                  <input id="use-reflection" name="useful_sections[]" type="checkbox" value="Culinary Adventure">
+                  <label for="use-reflection">Culinary Adventure</label>
+                </div>
+                <div class="option-item">
+                  <input id="use-references" name="useful_sections[]" type="checkbox" value="Research and References">
+                  <label for="use-references">Research &amp; References</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-card">
+            <fieldset>
+              <legend>
+                <span>10 / Comments and Feedback</span>
+                Leave a note
+              </legend>
+
+              <div class="field">
+                <label for="comments">Your comments about Indonesian cuisine or the website</label>
+                <textarea id="comments" name="comments" placeholder="Tell us what you liked, what surprised you, or what you would like to explore next..."></textarea>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-card">
+            <fieldset>
+              <legend>
+                <span>11 / Food Photo Upload</span>
+                Bring a dish to the table
+              </legend>
+
+              <div class="field">
+                <label for="food-photo">Upload a food photo</label>
+                <input id="food-photo" name="food_photo" type="file" accept="image/*">
+                <small class="help-text">Image files only (JPG, PNG, WEBP, GIF, and other browser-supported image formats).</small>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-card">
+            <fieldset>
+              <legend>
+                <span>12 / Culinary Exploration Progress</span>
+                How far did you travel?
+              </legend>
+
+              <div class="progress-box">
+                <div class="progress-head">
+                  <span>Journey completed</span>
+                  <strong style="color:#C85A32;">75%</strong>
+                </div>
+                <progress id="exploration-progress" value="75" max="100">75%</progress>
+                <small class="help-text">
+                  This progress bar represents a visitor who has explored most of the Rasa Rumah journey.
+                </small>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-card">
+            <fieldset>
+              <legend>
+                <span>13 / Form Buttons</span>
+                Finish the visit
+              </legend>
+
+              <div class="form-actions">
+                <button class="button button-primary" type="submit">Submit Feedback</button>
+                <button class="button button-ghost" type="reset">Clear Form</button>
+                <a class="button button-light button-link" href="index.html#introduction">View Culinary Guide ↗</a>
+              </div>
+
+              <p class="form-footer-note">
+                Thank you for taking the time to share your experience with Rasa Rumah.
+              </p>
+            </fieldset>
+          </div>
+
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <a class="brand footer-brand" href="index.html#top" aria-label="Return to Rasa Rumah home">
+          <span class="brand-mark">RR</span>
+          <span>
+            <strong>Rasa Rumah</strong>
+            <small style="color:#8C9B91;">taste of home</small>
+          </span>
+        </a>
+
+        <a class="footer-link" href="#top">Back to top ↑</a>
+      </div>
+
+      <div class="footer-bottom">
+        <span>Jorja Angela A. Fernandez · Web Programming</span>
+        <span>Indonesia · 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const cuisineRating = document.getElementById('cuisine-rating');
+    const ratingValue = document.getElementById('rating-value');
+
+    function updateRating() {
+      ratingValue.textContent = `${cuisineRating.value} / 10`;
+    }
+
+    cuisineRating.addEventListener('input', updateRating);
+    updateRating();
+  </script>
+</body>
+</html>
